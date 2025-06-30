@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Estación de Trabajo Móvil</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+    header {
+      background: #2196f3;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    main {
+      flex: 1;
+      padding: 1rem;
+      overflow-y: auto;
+    }
+    .search-youtube {
+      margin-top: 1rem;
+    }
+    footer {
+      background: #f1f1f1;
+      padding: 0.5rem;
+      text-align: center;
+    }
+    input[type="text"] {
+      width: calc(100% - 100px);
+      padding: 0.5rem;
+      font-size: 1rem;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      margin-left: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Mi Estación de Trabajo</h1>
+  </header>
+  <main>
+    <h2>Herramientas móviles</h2>
+    <ul>
+      <li>Calculadora rápida</li>
+      <li>Notas rápidas</li>
+      <li>Acceso rápido a apps web</li>
+    </ul>
+
+    <section class="search-youtube">
+      <h3>Buscar en YouTube por tu modelo</h3>
+      <input type="text" id="modelo" placeholder="Ej: Samsung Galaxy S23" />
+      <button onclick="buscarYoutube()">Buscar</button>
+    </section>
+  </main>
+  <footer>
+    © 2025 Tu Estación Móvil
+  </footer>
+
+  <script>
+    function buscarYoutube() {
+      const modelo = document.getElementById("modelo").value.trim();
+      if (!modelo) {
+        alert("Por favor, ingresa el modelo de tu celular.");
+        return;
+      }
+      const query = encodeURIComponent(modelo);
+      const url = `https://www.youtube.com/results?search_query=${query}`;
+      window.open(url, "_blank");
+    }
+  </script>
+</body>
+</html>
